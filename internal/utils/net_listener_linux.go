@@ -7,7 +7,7 @@ import (
 	"golang.org/x/sys/unix"
 )
 
-const proxyListenerMSS = 256
+const proxyListenerMSS = 1372
 
 func setProxyListenerSocketOptions(network, address string, conn syscall.RawConn) error {
 	var sockErr error
