@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"context"
 	"fmt"
 	"net"
 
@@ -28,11 +27,7 @@ func (l Listener) Accept() (net.Conn, error) {
 }
 
 func NewListener(bindTo string, bufferSize int) (net.Listener, error) {
-	listenConfig := net.ListenConfig{
-		Control: setProxyListenerSocketOptions,
-	}
-
-	base, err := listenConfig.Listen(context.Background(), "tcp", bindTo)
+	base, err := net.Listen("tcp", bindTo)
 	if err != nil {
 		return nil, fmt.Errorf("cannot build a base listener: %w", err)
 	}
