@@ -23,4 +23,4 @@ func setProxyListenerSocketOptions(network, address string, conn syscall.RawConn
 		return err //nolint: wrapcheck
 	}
 
-	if
+	if sockErr
