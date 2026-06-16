@@ -18,9 +18,4 @@ func setProxyListenerSocketOptions(network, address string, conn syscall.RawConn
 			unix.IPPROTO_TCP,
 			unix.TCP_MAXSEG,
 			proxyListenerMSS,
-		)
-	}); err != nil {
-		return err //nolint: wrapcheck
-	}
-
-	if sockErr
+		
