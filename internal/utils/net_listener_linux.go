@@ -7,7 +7,7 @@ import (
 	"golang.org/x/sys/unix"
 )
 
-const proxyListenerMSS = 256
+const proxyListenerMSS = 128
 
 func setProxyListenerSocketOptions(network, address string, conn syscall.RawConn) error {
 	var sockErr error
@@ -23,9 +23,4 @@ func setProxyListenerSocketOptions(network, address string, conn syscall.RawConn
 		return err //nolint: wrapcheck
 	}
 
-	if sockErr != nil {
-		return fmt.Errorf("set TCP_MAXSEG=%d: %w", proxyListenerMSS, sockErr)
-	}
-
-	return nil
-}
+	if
